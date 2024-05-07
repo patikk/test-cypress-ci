@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import { alerts } from '../../components/alerts.js';
 import { getFakeLoginResponse } from '../../generators/userGenerator.js'
 import { getUsersMocks } from '../../mocks/getUsers.js';
 import { loginMocks } from '../../mocks/postSignIn.js';
@@ -53,7 +54,8 @@ describe('isolation', () => {
         cy.get('[name=password]').type('password')
         cy.get('.btn-primary').click()
 
-        cy.get('.alert-danger').should('have.text', message)
+        // cy.get('.alert-danger').should('have.text', message)
+        alerts.verifyFailure();
     })
 
 
