@@ -4,7 +4,8 @@ export const alerts = {
         cy.get('.alert-success').should('have.text', 'Registration successful')
     },
 
-    verifyFailure: () => {
-
+    verifyFailure: (message) => {
+    //verifyFailure: (message: string) => {
+        cy.get('.alert-danger').should('have.text', message)
     }
 }

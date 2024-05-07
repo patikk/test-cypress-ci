@@ -2,7 +2,7 @@ import { alerts } from '../../components/alerts.js';
 import { getRandomUser } from '../../generators/userGenerator.js'
 import { getUsersMocks } from '../../mocks/getUsers.js';
 import { registerMock } from '../../mocks/postSignUp.js';
-import { registerPage } from '../../pages/register.js';
+import { registerPage } from '../../pages/register';
 
 
 describe('isolation - register', () => {

@@ -12,7 +12,7 @@ describe('security isolated', () => {
         // cy.intercept('GET', '**/users', { fixture: 'users.json' })
         getUsersMocks.mockUsers();
         cy.visit('http://localhost:8081');
-        // cy.get('h2').should('have.text', 'Login')
+        cy.get('h3').should('have.text', 'Login')
         // cy.url().should('contain', '/login')
 
     })

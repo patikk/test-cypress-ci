@@ -1,10 +1,12 @@
+import { User } from "../types/users"
+
 export const registerPage = {
     selectors: {
         login: '',
 
     },
 
-    attemptRegister: (randomUs) => {
+    attemptRegister: (randomUs: User) => {
         cy.get('[name="firstName"]').type(randomUs.firstName)
         cy.get('[name="lastName"]').type(randomUs.lastName)
         cy.get('[name="email"]').type(randomUs.email)
