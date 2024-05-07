@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 import { getFakeLoginResponse } from '../../generators/userGenerator';
+import { getUsersMocks } from '../../mocks/getUsers.js';
 
 describe('security isolated', () => {
 
@@ -8,7 +9,8 @@ describe('security isolated', () => {
         cy.setCookie('token', user.token);
         localStorage.setItem('user', JSON.stringify(user));
         
-        cy.intercept('GET', '**/users', { fixture: 'users.json' })
+        // cy.intercept('GET', '**/users', { fixture: 'users.json' })
+        getUsersMocks.mockUsers();
         cy.visit('http://localhost:8081');
         // cy.get('h2').should('have.text', 'Login')
         // cy.url().should('contain', '/login')

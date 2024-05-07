@@ -1,4 +1,6 @@
 import { getRandomUser } from '../../generators/userGenerator.js'
+import { getUsersMocks } from '../../mocks/getUsers.js';
+import { registerMock } from '../../mocks/postSignUp.js';
 
 
 describe('isolation - register', () => {
@@ -10,17 +12,19 @@ describe('isolation - register', () => {
     it('register', () => {
         const randomUs = getRandomUser();
 
-        cy.intercept('POST', '**/users/signup', (req) => {
-            req.reply({
-                statusCode: 201,
-                body: {
-                    token: 'fakeToken'
-                },
-              })
-        })
+        // cy.intercept('POST', '**/users/signup', (req) => {
+        //     req.reply({
+        //         statusCode: 201,
+        //         body: {
+        //             token: 'fakeToken'
+        //         },
+        //       })
+        // })
+        registerMock.mockSuccess();
         
 
-        cy.intercept('GET', '**/users', { fixture: 'users.json' })
+        // cy.intercept('GET', '**/users', { fixture: 'users.json' })
+        getUsersMocks.mockUsers();
 
         cy.get('[name="firstName"]').type(randomUs.firstName)
         cy.get('[name="lastName"]').type(randomUs.lastName)
