@@ -1,4 +1,8 @@
 export const registerPage = {
+    selectors: {
+        login: '',
+
+    },
 
     attemptRegister: (randomUs) => {
         cy.get('[name="firstName"]').type(randomUs.firstName)

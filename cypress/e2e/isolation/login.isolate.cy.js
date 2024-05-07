@@ -3,6 +3,7 @@ import { alerts } from '../../components/alerts.js';
 import { getFakeLoginResponse } from '../../generators/userGenerator.js'
 import { getUsersMocks } from '../../mocks/getUsers.js';
 import { loginMocks } from '../../mocks/postSignIn.js';
+import { loginPage } from '../../pages/login.js';
 
 
 describe('isolation', () => {
@@ -50,9 +51,10 @@ describe('isolation', () => {
         // })
         loginMocks.mockFailure(message);
 
-        cy.get('[name=username]').type('wrong')
-        cy.get('[name=password]').type('password')
-        cy.get('.btn-primary').click()
+        // cy.get('[name=username]').type('wrong')
+        // cy.get('[name=password]').type('password')
+        // cy.get('.btn-primary').click()
+        loginPage.attemptLogin();
 
         // cy.get('.alert-danger').should('have.text', message)
         alerts.verifyFailure();
