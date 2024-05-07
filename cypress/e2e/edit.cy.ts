@@ -1,8 +1,9 @@
 /// <reference types="cypress" />
-import {getRandomUser} from '../generators/userGenerator.js'
+import {getRandomUser} from '../generators/userGenerator'
+import { User } from '../types/users';
 
-let token;
-let userRandom;
+let token: string | undefined;
+let userRandom: User;
 
 describe('example to-do app', () => {
     beforeEach(() => {
@@ -11,7 +12,7 @@ describe('example to-do app', () => {
         cy.login(userRandom.username, userRandom.password);
         //cy.getCookie('token').then(cookie=>token=cookie.value);
         cy.getCookie('token').then((cookie) => {
-            token = cookie.value
+            token = cookie?.value
         })
         //cy.logout(userRandom.username);
         // cy.login("admin", "admin");

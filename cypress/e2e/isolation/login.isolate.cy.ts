@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
-import { alerts } from '../../components/alerts.js';
-import { getFakeLoginResponse } from '../../generators/userGenerator.js'
-import { getUsersMocks } from '../../mocks/getUsers.js';
-import { loginMocks } from '../../mocks/postSignIn.js';
-import { loginPage } from '../../pages/login.js';
+import { alerts } from '../../components/alerts';
+import { getFakeLoginResponse } from '../../generators/userGenerator'
+import { getUsersMocks } from '../../mocks/getUsers';
+import { loginMocks } from '../../mocks/postSignIn';
+import { loginPage } from '../../pages/login';
 
 
 describe('isolation', () => {
@@ -26,9 +26,10 @@ describe('isolation', () => {
         // cy.intercept('GET', '**/users', { fixture: 'users.json' })
         getUsersMocks.mockUsers();
           
-        cy.get('[name="username"]').type(fakelogin.username);
-        cy.get('[name="password"]').type("password");
-        cy.get('[class="btn btn-primary"]').click();
+        // cy.get('[name="username"]').type(fakelogin.username);
+        // cy.get('[name="password"]').type("password");
+        // cy.get('[class="btn btn-primary"]').click();
+        loginPage.attemptLogin(fakelogin.username, 'correct')
         //cy.get('h1').should('contains.text', 'Slawomir');
         cy.get('h1').should('contain.text', fakelogin.firstName)
 
@@ -54,10 +55,10 @@ describe('isolation', () => {
         // cy.get('[name=username]').type('wrong')
         // cy.get('[name=password]').type('password')
         // cy.get('.btn-primary').click()
-        loginPage.attemptLogin();
+        loginPage.attemptLogin("wrong", "wrong");
 
         // cy.get('.alert-danger').should('have.text', message)
-        alerts.verifyFailure();
+        alerts.verifyFailure(message);
     })
 
 

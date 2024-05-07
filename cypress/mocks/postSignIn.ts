@@ -1,6 +1,8 @@
+import { LoginResponse } from "../types/login"
+
 export const loginMocks = {
 
-    mockSuccess: (fakelogin) => {
+    mockSuccess: (fakelogin: LoginResponse) => {
         cy.intercept('POST', '**/users/signin', (req) => {
             req.reply({
               statusCode: 200,
@@ -10,7 +12,7 @@ export const loginMocks = {
           })
     },
 
-    mockFailure: (message) => {
+    mockFailure: (message: string) => {
         cy.intercept('POST', '**/users/signin', (req) => {
             req.reply({
                 statusCode: 422,

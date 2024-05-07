@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
-import { getRandomUser } from '../generators/userGenerator.js'
+import { getRandomUser } from '../generators/userGenerator'
 
-let token;
+let token: string | undefined;
 const userRandom = getRandomUser();
 
 

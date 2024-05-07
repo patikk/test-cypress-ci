@@ -1,7 +1,7 @@
-import { alerts } from '../../components/alerts.js';
-import { getRandomUser } from '../../generators/userGenerator.js'
-import { getUsersMocks } from '../../mocks/getUsers.js';
-import { registerMock } from '../../mocks/postSignUp.js';
+import { alerts } from '../../components/alerts';
+import { getRandomUser } from '../../generators/userGenerator'
+import { getUsersMocks } from '../../mocks/getUsers';
+import { registerMock } from '../../mocks/postSignUp';
 import { registerPage } from '../../pages/register';
 
 

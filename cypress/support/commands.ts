@@ -10,7 +10,7 @@
 //
 //
 
-import {getRandomUser} from '../generators/userGenerator.js'
+import {getRandomUser} from '../generators/userGenerator'
 
 // -- This is a parent command --
 Cypress.Commands.add('login', (username, password) => { 
@@ -82,7 +82,7 @@ Cypress.Commands.add('register', (user) => {
         // },
     }).then((resp) => {
         cy.log("resp " + resp.status)
-        if(resp.status == '201') {
+        if(resp.status === 201) {
             cy.log("hip hip hurra")
         }
        // cy.login(userRandom.username, userRandom.password);
