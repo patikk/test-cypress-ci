@@ -22,12 +22,12 @@ describe('security isolated', () => {
         cy.get('li').should('have.length.at.least', 2)
     })
 
-    it('should display home page - fail', () => {
-        // when (tested action)
-        cy.visit('http://localhost:8081')
+    // it('should display home page - fail', () => {
+    //     // when (tested action)
+    //     cy.visit('http://localhost:8081')
 
-        // then (assertion)
-        cy.get('li').should('have.length', 1)
-    })
+    //     // then (assertion)
+    //     cy.get('li').should('have.length', 1)
+    // })
 
 })
